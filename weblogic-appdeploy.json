@@ -1,6 +1,6 @@
 {
-  "id": "/weblogic-appdeploy",
-  "cmd": "printenv && pwd && ls && wlst /u01/oracle/app-deploy.py",
+  "id": "/weblogic-app",
+  "cmd": "printenv && pwd && wlst /u01/oracle/app-deploy.py && startWebLogic.sh",
   "cpus": 1,
   "mem": 4098,
   "disk": 0,
@@ -9,7 +9,7 @@
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "tkrausjr/1221-appdeploy",
+      "image": "tkrausjr/1221-appdeploy:v2",
       "network": "BRIDGE",
       "portMappings": [
         {
