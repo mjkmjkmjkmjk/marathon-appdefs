@@ -1,0 +1,22 @@
+{
+  "id": "apacheftp-java-docker",
+  "cmd": "cd /opt/apache-ftpserver-1.0.6/ && bin/ftpd.sh res/conf/ftpd-typical.xml",
+  "cpus": 1,
+  "mem": 128.0,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "tkrausjr/apacheftp:latest",
+      "network": "BRIDGE",
+      "portMappings": [{ "containerPort": 2121, "hostPort": 0}]
+      }
+  },
+  "healthChecks": [{
+      "portIndex": 0,
+      "protocol": "TCP",
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 0
+}]
+}

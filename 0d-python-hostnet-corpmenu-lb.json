@@ -1,0 +1,30 @@
+{
+  "id": "/web-host-corpmenu-lb",
+  "cpus": 0.1,
+  "mem": 32,
+  "cmd": "env && ls -a && cd $MESOS_SANDBOX/webpage && python -m http.server $PORT0",
+  "instances": 1,
+  "uris": [
+  "http://downloads.mesosphere.com/training/corp-webpage.zip"
+  ],
+  "container":{
+    "docker":{
+      "image":"python:3",
+      "network": "HOST",
+      "ports": [ 
+       "port": 0 ] 
+   }
+  },
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "maxConsecutiveFailures": 10
+}],
+  "labels":{
+    "HAPROXY_GROUP":"external"
+    }
+}

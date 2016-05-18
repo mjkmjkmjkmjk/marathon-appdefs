@@ -1,0 +1,12 @@
+{
+  "id" : "productA",
+  "apps":[
+    {
+      "id": "webserverA",
+      "cmd": "env && python -m SimpleHTTPServer $PORT0",
+      "cpus": 1.5,
+      "mem": 64,      
+      "instances": 1
+    }
+  ]
+}

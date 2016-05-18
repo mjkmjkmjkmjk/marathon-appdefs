@@ -1,0 +1,16 @@
+{ "labels" : 
+  {
+  "DCOS_PACKAGE_IS_FRAMEWORK": "true",
+  "DCOS_PACKAGE_METADATA": "eyJuYW1lIjoiemVwcGVsaW4iLCJwb3N0SW5zdGFsbE5vdGVzIjoiWmVwcGVsaW4gaGFzIGJlZW4gc3VjY2Vzc2Z1bGx5IGluc3RhbGxlZCFcbk5vdGUgdGhhdCB0aGUgc2VydmljZSBpcyBleHBlcmltZW50YWwgYW5kIHRoZXJlIG1heSBiZSBidWdzLCBpbmNvbXBsZXRlIGZlYXR1cmVzLCBpbmNvcnJlY3QgZG9jdW1lbnRhdGlvbiBvciBvdGhlciBkaXNjcmVwYW5jaWVzLiIsInNjbSI6Imh0dHBzOi8vZ2l0aHViLmNvbS9hcGFjaGUvaW5jdWJhdG9yLXplcHBlbGluIiwiZGVzY3JpcHRpb24iOiJaZXBwZWxpbiBpcyBhIHdlYi1iYXNlZCBub3RlYm9vayB0aGF0IGVuYWJsZXMgaW50ZXJhY3RpdmUgZGF0YSBhbmFseXRpY3MiLCJwYWNrYWdpbmdWZXJzaW9uIjoiMi4wIiwidGFncyI6WyJuZmxhYnMiLCJmcmFtZXdvcmsiLCJiaWdkYXRhIiwic3BhcmsiLCJub3RlYm9vayIsImludGVyYWN0aXZlIl0sIm1haW50YWluZXIiOiJzdXBwb3J0QG1lc29zcGhlcmUuaW8iLCJmcmFtZXdvcmsiOnRydWUsInZlcnNpb24iOiIwLjUuNiIsImltYWdlcyI6eyJpY29uLXNtYWxsIjoiaHR0cHM6Ly9kb3dubG9hZHMubWVzb3NwaGVyZS5jb20vemVwcGVsaW4vYXNzZXRzL2ljb24tc2VydmljZS16ZXBwZWxpbi1zbWFsbC5wbmciLCJpY29uLW1lZGl1bSI6Imh0dHBzOi8vZG93bmxvYWRzLm1lc29zcGhlcmUuY29tL3plcHBlbGluL2Fzc2V0cy9pY29uLXNlcnZpY2UtemVwcGVsaW4tbWVkaXVtLnBuZyIsImljb24tbGFyZ2UiOiJodHRwczovL2Rvd25sb2Fkcy5tZXNvc3BoZXJlLmNvbS96ZXBwZWxpbi9hc3NldHMvaWNvbi1zZXJ2aWNlLXplcHBlbGluLWxhcmdlLnBuZyIsInNjcmVlbnNob3RzIjpudWxsfX0=",
+  "DCOS_PACKAGE_NAME": "zeppelin",
+  "DCOS_PACKAGE_REGISTRY_VERSION": "2.0",
+  "DCOS_PACKAGE_RELEASE": "1",
+  "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
+  "DCOS_PACKAGE_VERSION": "0.5.6",
+  "DCOS_SERVICE_NAME": "zeppelin",
+  "DCOS_SERVICE_PORT_INDEX": "0",
+  "DCOS_SERVICE_SCHEME": "http",
+  "HAPROXY_0_PORT": "10002",
+  "HAPROXY_GROUP": "external"
+  }
+}

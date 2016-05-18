@@ -1,0 +1,33 @@
+{
+  "id": "nginx-universe",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "nginx:1.7.7",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "hostPort": 0, "containerPort": 80, "servicePort": 9000 }
+      ],
+    "volumes": [
+    {
+        "containerPath": "/var/www",
+        "hostPath": "/home/core",
+        "mode": "RW"
+      }]
+  },
+}
+  "instances": 3,
+  "cpus": 0.1,
+  "mem": 65,
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "maxConsecutiveFailures": 10
+  }],
+  "constraints": [["hostname", "UNIQUE"]],
+  "acceptedResourceRoles":["slave_public"]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "toggle",
+  "cmd": "sleep 9 && cd $MESOS_SANDBOX && python toggle.py 80",
+  "env": {
+	"MY_ENV_VAR" : "wackawacka"
+         },
+  "cpus": 0.05,
+  "mem": 16.0,
+  "disk": 0.0,
+  "ports": [2181],
+  "requirePorts": false,  
+"instances": 3,
+  "uris":[
+    "http://downloads.mesosphere.com/misc/toggle.tgz"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "python:2",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "hostPort": 2181, "containerPort": 2181, "servicePort": 3000 }
+      ]
+    }
+  },
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "maxConsecutiveFailures": 5
+    }
+  ]
+}
+

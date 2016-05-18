@@ -1,0 +1,42 @@
+{
+  "id": "/marathon-lb",
+  "cpus": 1,
+  "mem": 1024,
+  "ports": [80,443,9090,9091,10000,10001,10002,10003,10004,10005,10006,10007,10008,10009,10010,10011,10012,10013,10014,10015,10016,10017,10018,10019,10020],
+  "requirePorts": true,
+  "args": [
+    "sse",
+    "-m",
+    "http://master.mesos:8080",
+    "--health-check",
+    "--group",
+    "external"  ],
+  "instances": 1,
+  "container":{
+    "docker":{
+      "image":"mesosphere/marathon-lb:v1.1.3",
+      "network": "HOST",
+      "privileged": true,
+      "parameters": [],
+      "forcePullImage": false
+    }
+  },
+  "env": {
+    "HAPROXY_SYSCTL_PARAMS": "net.ipv4.tcp_tw_reuse=1 net.ipv4.tcp_fin_timeout=30 net.ipv4.tcp_max_syn_backlog=10240 net.ipv4.tcp_max_tw_buckets=400000 net.ipv4.tcp_max_orphans=60000 net.core.somaxconn=10000"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "ignoreHttp1xx": false,
+      "intervalSeconds": 60,
+      "maxConsecutiveFailures": 3,
+      "path": "/_haproxy_health_check",
+      "portIndex": 2,
+      "protocol": "HTTP",
+      "timeoutSeconds": 20
+    }
+
+  ],
+  "acceptedResourceRoles":["slave_public"]
+}
+

@@ -1,0 +1,11 @@
+{
+  "id": "hello-play",
+  "cmd": "ls -a && export JAVA_HOME=$MESOS_DIRECTORY/jre1.8.0_66 && ./Hello-*/bin/hello -Dhttp.port=$PORT",
+  "mem": 512,
+  "cpus": 1.0,
+  "instances": 1,
+  "uris": [
+"http://downloads.mesosphere.com/java/jre-8u66-linux-x64.tar.gz",
+    "http://downloads.mesosphere.com/tutorials/PlayHello.zip"
+  ]
+}

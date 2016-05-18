@@ -1,0 +1,13 @@
+{
+  "id": "/apache-bench",
+  "cpus": 0.25,
+  "mem": 256,
+  "cmd": "ab -n 1000 -c 10 -s 5 http://thomaskra-publicsl-1mx4qvr2d9hq8-1431436564.us-west-2.elb.amazonaws.com:10001/",
+  "instances": 1,
+  "container":{
+    "docker":{
+      "image":"jordi/ab",
+      "network": "BRIDGE"
+   }
+  }
+}
