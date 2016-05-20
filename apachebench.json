@@ -1,0 +1,13 @@
+{
+  "id": "/apache-bench",
+  "cpus": 0.25,
+  "mem": 196,
+  "cmd": "while true; do ab -n 20000 -c 5 http://thomaskra-publicsl-hwsphqwhe64-1570240881.us-west-2.elb.amazonaws.com:10004/; done",
+  "instances": 8,
+  "container":{
+    "docker":{
+      "image":"jordi/ab",
+      "network": "HOST"
+   }
+  }
+}
