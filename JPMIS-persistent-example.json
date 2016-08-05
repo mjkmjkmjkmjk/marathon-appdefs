@@ -1,18 +1,27 @@
 {
-  "id": "/web-menu-marathon-lb",
+  "id": "/persistvols",
   "cpus": 0.1,
   "mem": 32,
-  "cmd": "env && ls -a && cd $MESOS_SANDBOX/webpage && python -m http.server 80",
+  "cmd": "env && ls -a / && ls -a $MESOS_SANDBOX && cd $MESOS_SANDBOX/webpage && python -m http.server 80",
   "instances": 1,
   "uris": [
   "http://downloads.mesosphere.com/training/webpage.zip"
   ],
   "container":{
+    "volumes": [
+      {
+        "containerPath": "persistentdata",
+        "mode": "RW",
+        "persistent": {
+          "size": 25
+        }
+      }
+    ],
     "docker":{
       "image":"python:3",
       "network": "BRIDGE",
       "portMappings": [ {
-       "hostPort": 0, "containerPort": 80, "servicePort": 10000 } 
+       "hostPort": 0, "containerPort": 80 } 
        ] 
    }
   },
@@ -24,8 +33,5 @@
       "gracePeriodSeconds": 10,
       "intervalSeconds": 2,
       "maxConsecutiveFailures": 10
-}],
-  "labels":{
-    "HAPROXY_GROUP":"external"
-    }
+}]
 }

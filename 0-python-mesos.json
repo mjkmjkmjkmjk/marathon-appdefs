@@ -1,0 +1,8 @@
+{
+  "id": "/python-http-mesos",
+  "cpus": 0.1,
+  "mem": 32,
+  "ports": [0],
+  "cmd": "whoami && which python && cd $MESOS_SANDBOX && /opt/mesosphere/bin/python -m http.server $PORT0",
+  "instances": 1
+}

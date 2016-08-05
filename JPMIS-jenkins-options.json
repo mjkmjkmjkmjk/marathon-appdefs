@@ -1,0 +1,8 @@
+{
+    "jenkins": {
+        "framework-name": "jenkins-prod",
+        "host-volume": "/mnt/jenkins",
+        "cpus": 2.0,
+        "mem": 4096
+    }
+}

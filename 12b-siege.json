@@ -1,5 +1,5 @@
 {
-  "id": "web-blast-siege",
+  "id": "web-siege",
   "args":[
     "-d1",
     "-r1000",

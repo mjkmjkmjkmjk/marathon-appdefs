@@ -1,0 +1,26 @@
+{
+  "id": "hello-external-persistent",
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 32,
+  "cmd": "while true; do echo $HOST >> $MESOS_SANDBOX/extvol1/outfile.txt; date >> $MESOS_SANDBOX/extvol1/outfile.txt; cat $MESOS_SANDBOX/extvol1/outfile.txt; sleep 10; done",
+  "container": {
+    "type": "MESOS",
+    "volumes": [
+      {
+        "containerPath": "extvol1",
+        "external": {
+          "size": 100,
+          "name": "extvol1",
+          "provider": "dvdi",
+          "options": { "dvdi/driver": "rexray" }
+          },
+        "mode": "RW"
+      }
+    ]
+  },
+  "upgradeStrategy": {
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
+  }
+}
