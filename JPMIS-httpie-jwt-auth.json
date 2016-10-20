@@ -1,0 +1,21 @@
+{
+  "id": "sse-jwt-auth",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "clue/httpie",
+      "network": "HOST",
+      "forcePullImage":true
+    }
+  },
+  "instances": 1,
+  "cpus": 0.2,
+  "mem": 64,
+  "args":[
+    "GET",
+    "http://master.mesos/service/marathon/v2/events",
+    "Authorization:token=<INSERT JWT TOKEN HERE>",
+    "Accept:text/event-stream",
+    "--stream"
+  ]
+}

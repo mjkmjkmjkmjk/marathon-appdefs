@@ -1,0 +1,11 @@
+{
+  "marathon-lb": {
+    "haproxy-group": "external",
+    "haproxy-map": true,
+    "instances": 2,
+    "mem": 1024,
+    "minimumHealthCapacity": 0.5,
+    "maximumOverCapacity": 0.2,
+    "name": "marathon-lb-external"
+  }
+}

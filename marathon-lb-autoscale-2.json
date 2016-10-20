@@ -1,0 +1,23 @@
+{
+  "id": "marathon-lb-autoscale",
+  "args":[
+    "--marathon", "http://leader.mesos:8080",
+    "--haproxy", "http://marathon-lb.marathon.mesos:9090",
+    "--target-rps", "50",
+    "--apps", "weblogic-app_10000",
+    "--threshold-instances", "1",
+    "--samples", "2",
+    "--interval", "30"
+  ],
+  "cpus": 0.1,
+  "mem": 16.0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "mesosphere/marathon-lb-autoscale",
+      "network": "HOST",
+      "forcePullImage": true
+    }
+  }
+}

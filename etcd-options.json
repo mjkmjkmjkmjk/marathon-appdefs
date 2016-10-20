@@ -1,0 +1,5 @@
+{ 
+ "etcd": { 
+   "docker-image": "mesosphere/etcd-mesos:0.1.1" 
+   }
+} 

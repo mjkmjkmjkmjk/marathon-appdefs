@@ -15,7 +15,7 @@
         {
           "containerPort": 8001,
           "hostPort": 0,
-          "servicePort": 10004,
+          "servicePort": 10000,
           "protocol": "tcp",
           "name": "weblogic-management-server",
           "labels": {}
@@ -23,7 +23,7 @@
         {
           "containerPort": 5556,
           "hostPort": 0,
-          "servicePort": 10005,
+          "servicePort": 10001,
           "protocol": "tcp",
           "name": "weblogic-administration-server",
           "labels": {}
@@ -31,7 +31,7 @@
         {
           "containerPort": 7001,
           "hostPort": 0,
-          "servicePort": 10006,
+          "servicePort": 10002,
           "protocol": "tcp",
           "name": "weblogic-node-manager",
           "labels": {}

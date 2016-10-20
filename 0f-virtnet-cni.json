@@ -1,0 +1,11 @@
+{
+  "id": "test-mesos-cni",
+  "cmd": "/usr/sbin/ifconfig && sleep 100000",
+  "cpus": 0.2,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "ipAddress": {
+      "networkName": "dcos"
+  }
+}
