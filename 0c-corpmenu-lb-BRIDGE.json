@@ -1,5 +1,5 @@
 {
-  "id": "/webmenu-lb",
+  "id": "/dev/webmenu-lb-bridge",
   "cpus": 0.1,
   "mem": 32,
   "cmd": "env && ls -a && cd $MESOS_SANDBOX/webpage && python -m http.server 80",

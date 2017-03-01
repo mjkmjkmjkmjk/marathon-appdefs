@@ -1,0 +1,14 @@
+{
+    "id": "/jpmis-0001/websvr",
+    "cpus": 0.1,
+    "mem": 16.0,
+    "ports": [
+        0
+    ],
+    "cmd": "/opt/mesosphere/bin/python3 -m http.server $PORT0",
+    "instances": 2,
+    "labels": {
+        "COST_CENTER": "jpmis-0001"
+    }
+}
+

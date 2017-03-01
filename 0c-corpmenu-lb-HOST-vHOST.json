@@ -1,5 +1,5 @@
 {
-  "id": "/web-host-corpmenu-lb",
+  "id": "/dev/webmenu-lb-host-vhost",
   "cpus": 0.1,
   "mem": 32,
   "cmd": "env && ls -a && cd $MESOS_SANDBOX/webpage && python -m http.server $PORT0",
@@ -10,9 +10,7 @@
   "container":{
     "docker":{
       "image":"python:3",
-      "network": "HOST",
-      "ports": [ 
-       "port": 0 ] 
+      "network": "HOST"
    }
   },
   "healthChecks": [{
@@ -25,6 +23,7 @@
       "maxConsecutiveFailures": 10
 }],
   "labels":{
-    "HAPROXY_GROUP":"external"
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST": "http://thomaskra-publicsl-r1d7akfn7e94-852276919.us-east-1.elb.amazonaws.com"
     }
 }
