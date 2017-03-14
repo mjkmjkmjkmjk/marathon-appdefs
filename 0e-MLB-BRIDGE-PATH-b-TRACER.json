@@ -1,0 +1,42 @@
+{
+  "id": "/test/tracer-mlb-bridge-tracer-b",
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 65,
+  "backoffSeconds": 1,
+  "backoffFactor": 1.15,
+  "maxLaunchDelaySeconds": 3600,
+  "container": {
+    "docker": {
+      "image": "jeremykuhnash/tracer:v10",
+      "forcePullImage": true,
+      "privileged": false,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp",
+          "servicePort": 10011
+        }
+      ],
+      "network": "BRIDGE"
+    }
+  },
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "path": "/",
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "timeoutSeconds": 10,
+      "maxConsecutiveFailures": 10,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "labels": {
+    "HAPROXY_GROUP": "external",
+    "HAPROXY_0_VHOST": "thomaskra-publicsl-ggqr61ohzas3-1853289001.us-west-2.elb.amazonaws.com",
+    "HAPROXY_0_PATH": "/tracer-appb",
+    "HAPROXY_0_HTTP_BACKEND_PROXYPASS_PATH": "/"
+  },
+  "requirePorts": false
+}

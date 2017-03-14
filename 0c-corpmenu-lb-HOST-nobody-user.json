@@ -1,9 +1,10 @@
 {
-  "id": "/dev/webmenu-lb-host-vhost",
+  "id": "/dev/webmenu-lb-host",
   "cpus": 0.1,
   "mem": 32,
   "cmd": "env && ls -a && cd $MESOS_SANDBOX/webpage && python -m http.server $PORT0",
   "instances": 1,
+  "user":"nobody",
   "uris": [
   "http://downloads.mesosphere.com/training/corp-webpage.zip"
   ],
@@ -24,6 +25,6 @@
 }],
   "labels":{
     "HAPROXY_GROUP":"external",
-    "HAPROXY_0_VHOST": "thomaskra-publicsl-128b9gsyd7b24-1703139020.us-east-1.elb.amazonaws.com"
+    "HAPROXY_0_VHOST": "thomaskra-publicsl-1uwhuu46b8md8-2000055297.us-west-2.elb.amazonaws.com"
     }
 }

@@ -17,7 +17,6 @@
         {
           "containerPort": 80,
           "hostPort": 0,
-          "servicePort": 10101,
           "protocol": "tcp",
           "name": "http"
           }
@@ -43,9 +42,9 @@
     "maximumOverCapacity": 1
   },
   "labels": {
-    "HAPROXY_0_VHOST": "thomaskra-publicsl-1bgxuh9o7anky-1226212428.us-west-2.elb.amazonaws.com",
+    "HAPROXY_0_VHOST": "thomaskra-publicsl-128b9gsyd7b24-1703139020.us-east-1.elb.amazonaws.com",
     "HAPROXY_GROUP": "external",
-    "HAPROXY_0_PATH": "/nginxpath"
+    "HAPROXY_0_PATH": "/nginxpath",
     "HAPROXY_0_HTTP_BACKEND_PROXYPASS_PATH": "/nginxpath"
   },
   "requirePorts": false

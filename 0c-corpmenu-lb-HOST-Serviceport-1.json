@@ -1,5 +1,5 @@
 {
-  "id": "/dev/webmenu-lb-host-vhost",
+  "id": "/dev/webmenu-lb-host-serviceport-1",
   "cpus": 0.1,
   "mem": 32,
   "cmd": "env && ls -a && cd $MESOS_SANDBOX/webpage && python -m http.server $PORT0",
@@ -24,6 +24,6 @@
 }],
   "labels":{
     "HAPROXY_GROUP":"external",
-    "HAPROXY_0_VHOST": "thomaskra-publicsl-128b9gsyd7b24-1703139020.us-east-1.elb.amazonaws.com"
+    "HAPROXY_0_PORT": "10002"
     }
 }

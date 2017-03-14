@@ -1,6 +1,6 @@
 {
-  "id": "/path/nginx-bridge-path-b",
-  "cmd": "env | sort && nginx -g \"daemon off;\"",
+  "id": "/path/corpmenu-bridge-path-b",
+  "cmd": "env && ls -a && cd $MESOS_SANDBOX/webpage && python -m http.server $PORT0",
   "instances": 1,
   "uris": [
   "http://downloads.mesosphere.com/training/corp-webpage.zip"
@@ -12,15 +12,13 @@
   "maxLaunchDelaySeconds": 3600,
   "container": {
     "type": "DOCKER",
-    "volumes": [],
     "docker": {
-      "image": "nginx:alpine",
+      "image": "python:3",
       "network": "BRIDGE",
       "portMappings": [
         {
-          "containerPort": 80,
+          "containerPort": 0,
           "hostPort": 0,
-          "servicePort": 10102,
           "protocol": "tcp",
           "name": "http"
           }
@@ -42,11 +40,11 @@
     }
   ],
   "upgradeStrategy": {
-    "minimumHealthCapacity": 1,
+    "minimumHealthCapacity": 0,
     "maximumOverCapacity": 1
   },
   "labels": {
-    "HAPROXY_0_VHOST": "thomaskra-publicsl-1bgxuh9o7anky-1226212428.us-west-2.elb.amazonaws.com",
+    "HAPROXY_0_VHOST": "thomaskra-publicsl-128b9gsyd7b24-1703139020.us-east-1.elb.amazonaws.com",
     "HAPROXY_GROUP": "external",
     "HAPROXY_0_PATH": "/corpmenu",
     "HAPROXY_0_HTTP_BACKEND_PROXYPASS_PATH": "/corpmenu"

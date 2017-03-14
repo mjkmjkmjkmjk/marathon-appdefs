@@ -14,7 +14,7 @@
   "args":[
     "GET",
     "http://master.mesos/service/marathon/v2/events",
-    "Authorization:token=<INSERT JWT TOKEN HERE>",
+    "Authorization:token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDg5NDA5MzYyfQ.cr0XS0Tx8gr4_9er4G6GBWQ3EjKycrZB7a-U1wtRlp3CjdJBVus7N2Ffkya1jmguN4wgZe35gTxWtNu_P1yNwcNdEArecLjV8ywWwcHNbM0CytsdWRsYVKr0tBhj4-it6AYR9Tu0oYnM_HSf8fAgk3CyGP6r3MOU_FA9LjAMiDhHMnTyF2Hf8uVBc785A5v8PArhYSutOIaY7it_0yzYN3LnRZDxnrTdzrRpUIY18vQp40u4SahyNuGVwGoJP1Yqgljn9E1PkHIPmUnydQqQzd6a2FncZQBgm1eCGf_tvIUT70JlGpaMJBxe063zjmlAcMHslaSCC_-H1fQx6eAOuA",
     "Accept:text/event-stream",
     "--stream"
   ]

@@ -1,5 +1,5 @@
 {
-  "id": "/test/nginx-docker-host",
+  "id": "/test/nginx-docker-minuteman",
   "instances": 2,
   "cpus": 0.01,
   "mem": 32,
@@ -17,7 +17,7 @@
       "protocol": "tcp",
       "name": "http",
       "labels": {
-        "VIP_0": "/nginx-docker-host:80"
+        "VIP_0": "/nginx-minuteman:80"
       }
     }
   ],
@@ -31,9 +31,5 @@
       "timeoutSeconds": 20,
       "maxConsecutiveFailures": 3
     }
-  ],
-  "labels": {
-    "HAPROXY_0_VHOST": "http://thomaskra-publicsl-10yo34xy3gn3q-980459369.us-west-2.elb.amazonaws.com",
-    "HAPROXY_GROUP": "external"
-  }
+  ]
 }
