@@ -1,0 +1,82 @@
+{
+  "id": "/gcp/dev/mom/user-marathon",
+  "cmd": "cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name dev-user-marathon --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_tasks_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role dev-user-marathon-role --zk zk://zk-1.zk:2181,zk-2.zk:2181,zk-3.zk:2181,zk-4.zk:2181,zk-5.zk:2181/mom/dev-user-marathon --mesos_authentication --mesos_authentication_principal dcos_dev_user_marathon",
+  "cpus": 2,
+  "mem": 4096,
+  "disk": 0,
+  "instances": 1,
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "acceptedResourceRoles": [],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "cbb-cs03-bt26-08.svr.us.jpmchase.net:5000/mesosphere/marathon-dcos-ee:v1.4.2_1.9.8",
+      "network": "HOST",
+      "portMappings": [],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": false
+    }
+  },
+  "env": {
+    "LIBPROCESS_SSL_SUPPORT_DOWNGRADE": "true",
+    "LIBPROCESS_SSL_REQUIRE_CERT": "false",
+    "DCOS_STRICT_SECURITY_ENABLED": "false",
+    "PLUGIN_AUTHN_MODE": "dcos/jwt+anonymous",
+    "JVM_OPTS": "-Xms256m -Xmx2g",
+    "USER": "dcos_dev_user_marathon",
+    "MESOS_AUTHENTICATEE": "com_mesosphere_dcos_ClassicRPCAuthenticatee",
+    "DCOS_SERVICE_ACCOUNT_CREDENTIAL_TOFILE": {
+      "secret": "service-credential"
+    },
+    "PLUGIN_FRAMEWORK_TYPE": "marathon",
+    "LIBPROCESS_SSL_VERIFY_CERT": "false",
+    "LIBPROCESS_SSL_ENABLED": "false",
+    "PLUGIN_ACS_URL": "http://master.mesos",
+    "MESOS_MODULES": "{\"libraries\":[{\"file\":\"/opt/libmesos-bundle/lib/libdcos_security.so\",\"modules\":[{\"name\":\"com_mesosphere_dcos_ClassicRPCAuthenticatee\"}]}]}"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 1800,
+      "intervalSeconds": 10,
+      "timeoutSeconds": 5,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "path": "/ping",
+      "protocol": "HTTP",
+      "ignoreHttp1xx": false
+    }
+  ],
+  "labels": {
+    "DCOS_SERVICE_PORT_INDEX": "0",
+    "DCOS_SERVICE_SCHEME": "http",
+    "DCOS_SERVICE_NAME": "dev-user-marathon"
+  },
+  "portDefinitions": [
+    {
+      "port": 0,
+      "protocol": "tcp",
+      "name": "http",
+      "labels": {
+        "VIP_0": "/gcp/dev/mom/user-marathon:8080"
+      }
+    },
+    {
+      "port": 0,
+      "protocol": "tcp",
+      "name": "libprocess",
+      "labels": {}
+    }
+  ],
+  "secrets": {
+    "service-credential": {
+      "source": "/gcp/dev/mom/service-credential"
+    }
+  }
+}
